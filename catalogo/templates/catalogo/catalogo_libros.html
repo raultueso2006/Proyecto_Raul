@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Catálogo de Libros</h2>
+
+<form method="get">
+  <input type="text" name="q" placeholder="Buscar libro..." value="{{ request.GET.q }}">
+  <button type="submit">Buscar</button>
+</form>
+
+<div>
+  {% for l in libros %}
+  <div style="border:1px solid #ccc; margin:10px; padding:10px; width:300px;">
+    <img src="{{ l.portada }}" alt="{{ l.titulo }}" width="150">
+    <h3>{{ l.titulo }}</h3>
+    <p>{{ l.descripcion }}</p>
+    <form method="post" action="{% url 'toggle_leido' l.id %}">
+      {% csrf_token %}
+      <button type="submit">{{ "✅ Leído" if l.leido else "📖 Marcar como leído" }}</button>
+    </form>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

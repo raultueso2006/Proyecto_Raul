@@ -1,0 +1,33 @@
+{% extends "catalogo/base.html" %}
+{% block content %}
+
+<h2 style="text-align:center; margin-bottom:20px;">🎬 Mi Catálogo</h2>
+
+<div class="search-box">
+    <form method="get">
+        <input type="text" name="q" placeholder="Buscar..." value="{{ request.GET.q }}">
+    </form>
+</div>
+
+<div class="grid">
+    {% for item in items %}
+        <div class="card">
+            {% if item.imagen %}
+                <img src="{{ item.imagen.url }}" alt="{{ item.nombre }}">
+            {% else %}
+                <img src="https://via.placeholder.com/250x300?text=Sin+Imagen" alt="Sin imagen">
+            {% endif %}
+            <div class="card-info">
+                <h3>{{ item.nombre }}</h3>
+                <p class="tipo">{{ item.tipo }}</p>
+                <a href="{% url 'marcar_visto' item.id %}" class="btn">
+                    {% if item.visto %}✔ Visto{% else %}Marcar como visto{% endif %}
+                </a>
+            </div>
+        </div>
+    {% empty %}
+        <p>No hay elementos en tu catálogo todavía.</p>
+    {% endfor %}
+</div>
+
+{% endblock %}

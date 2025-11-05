@@ -1,0 +1,180 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: #333;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    margin-left: 15px;
+}
+
+header a:hover {
+    text-decoration: underline;
+}
+
+.logout-btn {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 1em;
+    margin-left: 15px;
+}
+
+.logout-btn:hover {
+    text-decoration: underline;
+}
+
+.container {
+    width: 80%;
+    margin: 30px auto;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    overflow: hidden;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.search-box {
+    margin-bottom: 20px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.btn {
+    background: #007bff;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background: #0056b3;
+}
+
+.logout-btn {
+    background: none;
+    border: none;
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+/* ====== Efectos visuales tipo catálogo ====== */
+
+.card {
+    position: relative;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    text-align: center;
+    padding-bottom: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+}
+
+/* Imagen con overlay al pasar el mouse */
+.card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.3s ease;
+}
+
+.card:hover img {
+    opacity: 0.8;
+}
+
+/* Nombre y tipo con estilo */
+.card h3 {
+    margin: 10px 0 5px;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.card p {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    color: #777;
+}
+
+/* Botón de acción */
+.card .btn {
+    background: #007bff;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: background 0.3s ease;
+}
+
+.card .btn:hover {
+    background: #0056b3;
+}
+
+/* Efecto tipo 'Netflix' al pasar el mouse */
+.card::after {
+    content: "▶";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    color: white;
+    font-size: 40px;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.card:hover::after {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.9;
+}
+
+/* Ajuste visual del grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}

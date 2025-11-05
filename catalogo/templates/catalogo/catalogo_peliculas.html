@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Catálogo de Películas</h2>
+
+<form method="get">
+  <input type="text" name="q" placeholder="Buscar película..." value="{{ request.GET.q }}">
+  <button type="submit">Buscar</button>
+</form>
+
+<div>
+  {% for p in peliculas %}
+  <div style="border:1px solid #ccc; margin:10px; padding:10px; width:300px;">
+    <img src="{{ p.portada }}" alt="{{ p.titulo }}" width="150">
+    <h3>{{ p.titulo }}</h3>
+    <p>{{ p.descripcion }}</p>
+    <form method="post" action="{% url 'toggle_visto' p.id %}">
+      {% csrf_token %}
+      <button type="submit">{{ "✅ Visto" if p.vista else "👁️ Marcar como vista" }}</button>
+    </form>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
