@@ -1,58 +1,38 @@
-# =========================================
-# 🐍 ARCHIVOS DE PYTHON
-# =========================================
+# 🧩 --- ENTORNO VIRTUAL ---
+venv/
+*/venv/
+
+# 🗄️ --- BASE DE DATOS ---
+db.sqlite3
+
+# 🖼️ --- ARCHIVOS SUBIDOS (MEDIA) ---
+media/
+
+# 💾 --- ARCHIVOS COMPILADOS DE PYTHON ---
 __pycache__/
 *.py[cod]
 *$py.class
 
-# =========================================
-# 🧠 ENTORNOS VIRTUALES
-# =========================================
-venv/
-*/venv/
-.env
-*.env
-
-# =========================================
-# 🧩 CONFIGURACIÓN DE DJANGO
-# =========================================
-db.sqlite3
-media/
-staticfiles/
+# 🧱 --- ARCHIVOS DE LOG / TEMPORALES ---
 *.log
-
-# =========================================
-# 🧰 CONFIGURACIÓN DE EDITORES / IDEs
-# =========================================
-.vscode/
-.idea/
-*.sublime-workspace
-*.sublime-project
-
-# =========================================
-# 🧪 PRUEBAS Y CACHE
-# =========================================
-.coverage
-htmlcov/
-.tox/
-.nox/
-pytest_cache/
-*.cover
-*.py,cover
-.cache
-*.log
-
-# =========================================
-# 📦 ARCHIVOS DEL SISTEMA
-# =========================================
-.DS_Store
-Thumbs.db
-desktop.ini
-
-# =========================================
-# 🔧 OTROS
-# =========================================
-*.bak
+*.pot
+*.pyc
+*.pyo
+*.pyd
 *.swp
 *.tmp
-*.temp
+*.bak
+
+# 📦 --- DEPENDENCIAS Y ENTORNOS ---
+.env
+*.env
+.DS_Store
+.idea/
+.vscode/
+*.sqlite3
+
+# 🧰 --- MIGRACIONES COMPILADAS (opcional si querés ignorarlas) ---
+# */migrations/*.pyc
+
+# 📁 --- OTROS ---
+*.egg-info/
