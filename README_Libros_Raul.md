@@ -1,4 +1,4 @@
-# 🧩 Proyecto: LibrOS Raúl
+# 🧩 Proyecto: LibrOS Raúl 
 
 Este proyecto es una aplicación web desarrollada con **Django**, que permite gestionar un catálogo de libros y películas, recordar contenido y manejar usuarios registrados.
 
@@ -47,6 +47,8 @@ proyecto.raull.p/
 
 Sigue estos pasos para ejecutar el proyecto localmente:
 
+---
+
 ### 1️⃣ Clonar el repositorio
 
 ```bash
@@ -58,7 +60,7 @@ git clone git@github.com:raultueso2006/Proyecto_Raul.git
 ### 2️⃣ Crear y activar el entorno virtual
 
 #### 🪟 En Windows (PowerShell o VS Code terminal):
-#### Abrir la terminal desde la carpeta donde esta el "manage.py".
+#### Abrir la terminal desde la carpeta donde está el "manage.py".
 ```bash
 python -m venv venv
 venv\Scripts\activate
@@ -80,9 +82,13 @@ pip install -r requirements.txt
 
 ---
 
-### 4️⃣ Aplicar migraciones
+### 4️⃣ Crear la base de datos local 🗃️
+
+Como la base de datos **no se sube a GitHub**, cada persona debe generar la suya ejecutando las migraciones de Django.  
+Esto creará automáticamente el archivo `db.sqlite3` en la raíz del proyecto.
 
 ```bash
+python manage.py makemigrations
 python manage.py migrate
 ```
 
@@ -102,7 +108,7 @@ python manage.py createsuperuser
 python manage.py runserver
 ```
 
-Luego abrí tu navegador en:
+Luego abrí tu navegador en:  
 👉 [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
 
 ---
@@ -134,3 +140,5 @@ Luego abrí tu navegador en:
   ```bash
   pip freeze > requirements.txt
   ```
+- La base de datos (`db.sqlite3`) no se incluye en el repositorio.  
+  Cada persona que clone el proyecto deberá generarla ejecutando las migraciones.  
