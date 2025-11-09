@@ -55,11 +55,10 @@ git clone git@github.com:raultueso2006/Proyecto_Raul.git
 
 ---
 
-#### Abrir la terminal desde la carpeta donde esta el "manage.py".
-
 ### 2️⃣ Crear y activar el entorno virtual
 
 #### 🪟 En Windows (PowerShell o VS Code terminal):
+#### Abrir la terminal desde la carpeta donde esta el "manage.py".
 ```bash
 python -m venv venv
 venv\Scripts\activate
