@@ -50,7 +50,7 @@ Sigue estos pasos para ejecutar el proyecto localmente:
 ### 1️⃣ Clonar el repositorio
 
 ```bash
-git clone https://github.com/raultueso2006/proyecto_django.git
+git clone https://github.com/raultueso2006/Proyecto_Raul.git
 ```
 
 ---
