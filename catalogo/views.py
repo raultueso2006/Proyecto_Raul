@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from django.db.models import Q
 from .models import Item
 from .forms import ItemForm
@@ -37,3 +38,14 @@ def marcar_visto(request, item_id):
     item.visto = not item.visto
     item.save()
     return redirect("catalogo")
+
+# 🗑️ Eliminar un ítem con confirmación
+@login_required
+def eliminar_item(request, item_id):
+    item = get_object_or_404(Item, id=item_id, usuario=request.user)
+    if request.method == "POST":
+        item.delete()
+        messages.success(request, f"'{item.nombre}' fue eliminado correctamente.")
+        return redirect("catalogo")
+
+    return render(request, "catalogo/confirmar_eliminacion.html", {"item": item})

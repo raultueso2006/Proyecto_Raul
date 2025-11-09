@@ -116,9 +116,9 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # --------------------------------------------------------
 # AUTENTICACIÓN Y REDIRECCIONES
 # --------------------------------------------------------
-LOGIN_URL = '/login/'
-LOGIN_REDIRECT_URL = '/'       # Después de iniciar sesión
-LOGOUT_REDIRECT_URL = '/login/'  # Después de cerrar sesión
+LOGIN_URL = '/usuarios/login/'
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'login'
 
 # --------------------------------------------------------
 # CONFIGURACIÓN GENERAL

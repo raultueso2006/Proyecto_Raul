@@ -1,6 +1,3 @@
-from django.shortcuts import render
-
-# Create your views here.
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
@@ -16,7 +13,7 @@ def register(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('home')
+            return redirect('home')  # 👈 Redirige al inicio tras registrarse
     else:
         form = UserCreationForm()
     return render(request, 'recomendador/register.html', {'form': form})

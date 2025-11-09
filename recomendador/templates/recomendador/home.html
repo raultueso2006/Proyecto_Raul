@@ -1,7 +1,36 @@
 {% extends 'catalogo/base.html' %}
+{% load static %}
 
 {% block content %}
-    <h2>🏠 Inicio</h2>
-    <p>Bienvenido {{ user.username }} al recomendador de libros y películas.</p>
-    <p>Aquí podrás ver recomendaciones personalizadas basadas en tu catálogo.</p>
+<div class="inicio-container">
+    <h2 class="titulo-inicio">🏠 Inicio</h2>
+    <p class="texto-inicio">
+        Bienvenido {{ user.username }} al recordador de películas, series y libros.
+    </p>
+    <p class="texto-inicio">
+        Aquí podrás ver recordatorios personalizados basados en tu catálogo.
+    </p>
+
+    <!-- 🔘 Botones principales -->
+    <div class="botones-principales">
+        <a href="{% url 'catalogo' %}" class="btn-inicio">🎬 Catálogo</a>
+        <a href="{% url 'agregar_item' %}" class="btn-inicio">➕ Agregar</a>
+    </div>
+
+    <!-- 🃏 Tarjetas de categorías -->
+    <div class="tarjetas-inicio">
+        <div class="tarjeta categoria-pelicula">
+            <h3>🎥 Películas</h3>
+            <p>Gestioná tus películas vistas y pendientes.</p>
+        </div>
+        <div class="tarjeta categoria-serie">
+            <h3>📺 Series</h3>
+            <p>Organizá tus series favoritas fácilmente.</p>
+        </div>
+        <div class="tarjeta categoria-libro">
+            <h3>📚 Libros</h3>
+            <p>Guardá los libros que querés leer o ya leíste.</p>
+        </div>
+    </div>
+</div>
 {% endblock %}

@@ -1,0 +1,32 @@
+/* === ⚠️ ESTILOS DE CONFIRMACIÓN Y ALERTAS === */
+
+.confirm-container {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.btn-confirm {
+    background-color: #e53935;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.btn-confirm:hover {
+    background-color: #c62828;
+}
+
+.btn-cancel {
+    background-color: #444;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+.btn-cancel:hover {
+    background-color: #666;
+}

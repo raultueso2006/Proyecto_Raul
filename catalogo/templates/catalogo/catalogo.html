@@ -1,33 +1,49 @@
 {% extends "catalogo/base.html" %}
+{% load static %}
 {% block content %}
 
-<h2 style="text-align:center; margin-bottom:20px;">🎬 Mi Catálogo</h2>
+<h2 id="titulo-catalogo" class="titulo-catalogo">🎬 Mi Catálogo</h2>
 
-<div class="search-box">
-    <form method="get">
-        <input type="text" name="q" placeholder="Buscar..." value="{{ request.GET.q }}">
+<div id="buscador" class="search-box">
+    <form method="get" id="form-busqueda">
+        <input id="campo-busqueda" type="text" name="q" placeholder="Buscar..." value="{{ request.GET.q }}">
     </form>
 </div>
 
-<div class="grid">
+{% if items %}
+<div id="catalogo-grid" class="catalogo-grid">
     {% for item in items %}
-        <div class="card">
-            {% if item.imagen %}
-                <img src="{{ item.imagen.url }}" alt="{{ item.nombre }}">
-            {% else %}
-                <img src="https://via.placeholder.com/250x300?text=Sin+Imagen" alt="Sin imagen">
-            {% endif %}
-            <div class="card-info">
-                <h3>{{ item.nombre }}</h3>
-                <p class="tipo">{{ item.tipo }}</p>
-                <a href="{% url 'marcar_visto' item.id %}" class="btn">
-                    {% if item.visto %}✔ Visto{% else %}Marcar como visto{% endif %}
+        <div id="card-{{ item.id }}" class="catalogo-card">
+            
+            <!-- 🗑️ Icono de eliminar -->
+            <a href="{% url 'eliminar_item' item.id %}" class="delete-icon" title="Eliminar">
+                🗑️
+            </a>
+
+            <div id="imagen-contenedor-{{ item.id }}" class="imagen-contenedor">
+                {% if item.imagen %}
+                    <img id="imagen-{{ item.id }}" src="{{ item.imagen.url }}" alt="{{ item.nombre }}">
+                {% else %}
+                    <img id="imagen-{{ item.id }}" src="https://via.placeholder.com/300x400?text=Sin+Imagen" alt="Sin imagen">
+                {% endif %}
+                <span id="etiqueta-tipo-{{ item.id }}" class="etiqueta-tipo">
+                    {% if item.tipo == "Pelicula" %}🎬 Película
+                    {% elif item.tipo == "Serie" %}📺 Serie
+                    {% else %}📚 Libro{% endif %}
+                </span>
+            </div>
+
+            <div id="info-card-{{ item.id }}" class="info-card">
+                <h3 id="nombre-item-{{ item.id }}">{{ item.nombre }}</h3>
+                <a id="btn-visto-{{ item.id }}" href="{% url 'marcar_visto' item.id %}" class="btn-visto">
+                    {% if item.visto %}✔ Marcado como visto{% else %}👁️ Marcar como visto{% endif %}
                 </a>
             </div>
         </div>
-    {% empty %}
-        <p>No hay elementos en tu catálogo todavía.</p>
     {% endfor %}
 </div>
+{% else %}
+    <p id="sin-items" class="sin-items">📭 No hay elementos en tu catálogo todavía. Usa el botón “Agregar” para añadir uno.</p>
+{% endif %}
 
 {% endblock %}
